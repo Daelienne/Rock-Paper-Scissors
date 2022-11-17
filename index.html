@@ -14,7 +14,38 @@
             return random[Math.floor(Math.random()* 3)];  
         }
         console.log(getComputerChoice());
+
+
+        function playRound (playerSelection, computerSelection) {
+            if (playerSelection === computerSelection) {
+                return ("It's a tie!");
+            }
+            else if (playerSelection === "rock" && computerSelection === "paper") {
+                return ("Paper beats rock. You Lose!");
+            }
+            else if (playerSelection === "rock" && computerSelection === "scissors") {
+                return ("Rock beats scissors. You Win!");
+            }
+            else if (playerSelection === "paper" && computerSelection === "rock") {
+                return ("Paper beats rock. You Win!");
+            }
+            else if (playerSelection === "paper" && computerSelection === "scissors") {
+                return ("Scissors beat paper. You Lose!");
+            }
+            else if (playerSelection === "scissors" && computerSelection === "rock") {
+                return ("Rock beats scissors. You Lose!")
+            }
+            else if (playerSelection === "scissors" && computerSelection === "paper") {
+                return ("Scissors beat paper. You Win!");
+            } else {  
+                return ("Invalid user input.");
+            }
+        }
         
+        const playerSelection = "rock";
+        const computerSelection = getComputerChoice();
+        console.log(playRound(playerSelection, computerSelection)); //There's a bug here. It sometimes doesn't work as intended.
+
     </script>
     
 </body>
