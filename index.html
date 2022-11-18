@@ -8,43 +8,57 @@
 </head>
 <body>
     <script>
+
     
         function getComputerChoice() {
             let random = ["rock", "paper", "scissors"];
             return random[Math.floor(Math.random()* 3)];  
         }
-        console.log(getComputerChoice());
 
 
-        function playRound (playerSelection, computerSelection) {
+        function playRound (computerSelection, playerSelection) {
+
             if (playerSelection === computerSelection) {
                 return ("It's a tie!");
+            } 
+            else if (playerSelection === "rock") {
+                if (computerSelection === "paper") {
+                    return "Paper beats rock. You lose!";
+                } 
+                else if (computerSelection === "scissors") {
+                    return "Rock beat Scissors. You win!";
+                }   
             }
-            else if (playerSelection === "rock" && computerSelection === "paper") {
-                return ("Paper beats rock. You Lose!");
+            else if (playerSelection === "paper") {
+                if (computerSelection === "rock") {
+                    return "Paper beats rock. You win!";
+                } 
+                else if (computerSelection === "scissors") {
+                    return "Scissors beat paper. You lose!";
+                }   
             }
-            else if (playerSelection === "rock" && computerSelection === "scissors") {
-                return ("Rock beats scissors. You Win!");
-            }
-            else if (playerSelection === "paper" && computerSelection === "rock") {
-                return ("Paper beats rock. You Win!");
-            }
-            else if (playerSelection === "paper" && computerSelection === "scissors") {
-                return ("Scissors beat paper. You Lose!");
-            }
-            else if (playerSelection === "scissors" && computerSelection === "rock") {
-                return ("Rock beats scissors. You Lose!")
-            }
-            else if (playerSelection === "scissors" && computerSelection === "paper") {
-                return ("Scissors beat paper. You Win!");
-            } else {  
-                return ("Invalid user input.");
+            else if (playerSelection === "scissors") {
+                if (computerSelection === "rock") {
+                    return "Rock beats scissors. You lose!";
+                } 
+                else if (computerSelection === "paper") {
+                    return "Scissors beat paper. You win!";
+                }   
+            } 
+        }
+
+        const computerSelection = getComputerChoice();
+        const playerSelection = String(window.prompt("What's your choice?"));
+        console.log(playRound(computerSelection, playerSelection)); //There's a bug here. It sometimes doesn't work as intended.
+
+
+        function game() {
+
+            function playRound(computerSelection, playerSelection) {
+                for (let i= 0; i < 5; i++) {
+                }
             }
         }
-        
-        const playerSelection = "rock";
-        const computerSelection = getComputerChoice();
-        console.log(playRound(playerSelection, computerSelection)); //There's a bug here. It sometimes doesn't work as intended.
 
     </script>
     
