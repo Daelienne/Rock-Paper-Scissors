@@ -11,15 +11,18 @@
 
         let computerScore = 0;
         let playerScore = 0;
+        let win = "Congratulations! You win! :)";
+        let lose = "Game over...";
+        let tie = "Draw!";
 
-        // Computer chooses its move.
+        // Choose the computer move
         function getComputerChoice() {
             let random = ["rock", "paper", "scissors"];
             return random[Math.floor(Math.random()* 3)];  
         }
 
 
-        // Plays a round of the game.
+        // Play a round of the game
         function playRound (computerSelection, playerSelection) {
         
             if (playerSelection.toLowerCase() === computerSelection) {
@@ -57,11 +60,10 @@
             } else {
                 return "Invalid user input."
             }
-
-            
+  
         }
         
-        // Plays five rounds of the game and keeps track of the score.
+        // Play five rounds of the game and keep track of the score
         function game(){
 
             for (let i = 0; i < 5; i++ ) {
@@ -74,6 +76,21 @@
             }
         }
         game();
+
+        // Report a winner at the end of the end of the game
+        function score() {
+
+            if (playerScore >= 3) {
+                    return win;
+                    
+                } else if (computerScore >= 3) {
+                    return lose;
+                    
+                } else if (computerScore === playerScore) {
+                    return tie;
+                }
+        }
+        console.log(score(win, lose, tie));
 
     </script>
     
