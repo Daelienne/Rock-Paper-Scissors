@@ -9,58 +9,71 @@
 <body>
     <script>
 
-    
+        let computerScore = 0;
+        let playerScore = 0;
+
+        // Computer chooses its move.
         function getComputerChoice() {
             let random = ["rock", "paper", "scissors"];
             return random[Math.floor(Math.random()* 3)];  
         }
 
 
+        // Plays a round of the game.
         function playRound (computerSelection, playerSelection) {
-
+        
             if (playerSelection.toLowerCase() === computerSelection) {
                 return ("It's a tie!");
             } 
             else if (playerSelection.toLowerCase() === "rock") {
                 if (computerSelection === "paper") {
+                    computerScore++;
                     return "Paper beats rock. You lose!";
                 } 
                 else if (computerSelection === "scissors") {
+                    playerScore++;
                     return "Rock beat Scissors. You win!";
                 }   
             }
             else if (playerSelection.toLowerCase() === "paper") {
                 if (computerSelection === "rock") {
+                    playerScore++;
                     return "Paper beats rock. You win!";
                 } 
                 else if (computerSelection.toLowerCase() === "scissors") {
+                    computerScore++;
                     return "Scissors beat paper. You lose!";
                 }   
             }
             else if (playerSelection.toLowerCase() === "scissors") {
                 if (computerSelection === "rock") {
+                    computerScore++;
                     return "Rock beats scissors. You lose!";
                 } 
                 else if (computerSelection === "paper") {
+                    playerScore++;
                     return "Scissors beat paper. You win!";
                 }   
             } else {
                 return "Invalid user input."
             }
+
+            
         }
+        
+        // Plays five rounds of the game and keeps track of the score.
+        function game(){
 
-        const computerSelection = getComputerChoice();
-        const playerSelection = String(window.prompt("What's your choice?"));
-        console.log(playRound(computerSelection, playerSelection)); //There's a bug here. It sometimes doesn't work as intended.
+            for (let i = 0; i < 5; i++ ) {
 
-
-        function game() {
-
-            function playRound(computerSelection, playerSelection) {
-                for (let i= 0; i < 5; i++) {
-                }
+                const computerSelection = getComputerChoice();
+                const playerSelection = String(window.prompt("What's your choice?"));
+                console.log(playRound(computerSelection, playerSelection));
+                console.log(`Computer's score: ${computerScore}, Your score: ${playerScore}`);
+                   
             }
         }
+        game();
 
     </script>
     
