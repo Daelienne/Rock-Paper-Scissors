@@ -12,7 +12,7 @@
         let computerScore = 0;
         let playerScore = 0;
         const win = "Congratulations! You win! :)";
-        const lose = "GAME OVER"
+        const lose = "GAME OVER";
         const tie = "Draw!";
 
         // Choose the computer move
@@ -20,7 +20,6 @@
             let random = ["rock", "paper", "scissors"];
             return random[Math.floor(Math.random()* 3)];  
         }
-
 
         // Play a round of the game
         function playRound (computerSelection, playerSelection) {
