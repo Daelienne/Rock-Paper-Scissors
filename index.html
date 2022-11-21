@@ -11,9 +11,9 @@
 
         let computerScore = 0;
         let playerScore = 0;
-        let win = "Congratulations! You win! :)";
-        let lose = "Game over...";
-        let tie = "Draw!";
+        const win = "Congratulations! You win! :)";
+        const lose = "GAME OVER"
+        const tie = "Draw!";
 
         // Choose the computer move
         function getComputerChoice() {
@@ -80,17 +80,17 @@
         // Report a winner at the end of the end of the game
         function score() {
 
-            if (playerScore >= 3) {
+            if (playerScore > computerScore) {
                     return win;
                     
-                } else if (computerScore >= 3) {
+                } else if (computerScore > playerScore) {
                     return lose;
                     
                 } else if (computerScore === playerScore) {
                     return tie;
                 }
         }
-        console.log(score(win, lose, tie));
+        console.log(score());
 
     </script>
     
