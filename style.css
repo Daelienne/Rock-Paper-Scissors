@@ -3,6 +3,7 @@
     padding: 0;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
 body {
     background-color: lightsteelblue;   
 }
@@ -35,6 +36,7 @@ h2 {
     justify-content: space-around;
     margin: 0px 180px;
 }
+
 .computer, .player {
     text-align: center;
 }
