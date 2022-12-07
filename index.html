@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+    
 </head>
 <body>
 
@@ -16,9 +17,6 @@
         <p id="result"></p>
         <p id="score"></p> 
         <h2 id="winner"></h2>
-     
-
-
     </div>
 
     <script> 
@@ -78,18 +76,15 @@
              }
         }
 
-        // Checks winner at the end of the game
+        function checkWinner() {
 
-         function checkWinner (computerScore, playerScore) {
-
-             if (playerScore === 5) {
-                document.getElementById('winner').innerText = 'You win';
-                     
-                    
-                 } else if (computerScore === 5) {
-                    document.getElementById('winner').innerText = 'You lose'; 
-                 }
-         }
+            if (playerScore >= 5) {
+            document.getElementById('winner').innerText = 'You win';
+             
+                } else if (computerScore >= 5) {
+                document.getElementById('winner').innerText = 'You lose';
+                } 
+            }
 
         // Add an event listener to each player move button
 
@@ -98,7 +93,8 @@
             const playerSelection = "rock";
             document.getElementById('result').innerText = playRound(computerSelection, playerSelection);
             document.getElementById('score').innerText = `Computer's score: ${computerScore}, Your score: ${playerScore}`;
-            checkWinner(computerScore, playerScore);
+            checkWinner();
+     
         });
 
         paperButton.addEventListener('click', () => {  
@@ -116,7 +112,7 @@
             document.getElementById('score').innerText = `Computer's score: ${computerScore}, Your score: ${playerScore}`;
             checkWinner(computerScore, playerScore);
         });
-        
+      
     </script>
     
 </body>
