@@ -4,116 +4,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissors</title>
-    
+    <link rel="stylesheet" href="style.css">
+    <title>Rock Paper Scissors with UI</title>
 </head>
 <body>
 
-    <button class="rock">ROCK</button>
-    <button class="paper">PAPER</button>
-    <button class="scissors">SCISSORS</button>
-
-    <div class="scoreBoard" style="background-color:pink; height: 400px; width: 900px;">
-        <p id="result"></p>
-        <p id="score"></p> 
-        <h2 id="winner"></h2>
+    <div class="header">
+        <h1>Rock, paper and Scissors game</h1>
+        <h3>Will you be able to achieve 5 wins before the computer does so?</h3>
     </div>
 
-    <script> 
-
-        const computerSelection = getComputerChoice();
-
-        const rockButton = document.querySelector('.rock');
-        const paperButton = document.querySelector('.paper');
-        const scissorsButton = document. querySelector('.scissors');
-
-        let computerScore = 0;
-        let playerScore = 0;
-
-        // Choose the computer move
-
-         function getComputerChoice() {
-            let random = ["rock", "paper", "scissors"];
-            return random[Math.floor(Math.random()* random.length)];  
-        }
-
-        // Play a round of the game
-
-        function playRound (computerSelection, playerSelection) {
+    <div class="scoreboard">
+        <div class="computer">
+            <h3 class="computer-score">Computer Score: 0</h3> 
+            <h3 class="computer-move"></h3>
+        </div>
+        <div class="player">
+            <h3 class="player-score">Player Score: 0</h3> 
+            <h3 class="player-move"></h3>
+        </div>
         
-            if (playerSelection === computerSelection) {
-                return ("It's a tie!");
-            } 
-            else if (playerSelection === "rock") {
-                if (computerSelection === "paper") {
-                    computerScore++;
-                    return "Paper beats rock. You lose!";
-                } 
-                else if (computerSelection === "scissors") {
-                    playerScore++;
-                    return "Rock beat Scissors. You win!";
-                }   
-            }
-            else if (playerSelection === "paper") {
-                if (computerSelection === "rock") {
-                    playerScore++;
-                    return "Paper beats rock. You win!";
-                } 
-                else if (computerSelection === "scissors") {
-                    computerScore++;
-                    return "Scissors beat paper. You lose!";
-                }   
-            }
-            else if (playerSelection === "scissors") {
-                if (computerSelection === "rock") {
-                    computerScore++;
-                    return "Rock beats scissors. You lose!";
-                } 
-                else if (computerSelection === "paper") {
-                    playerScore++;
-                    return "Scissors beat paper. You win!";
-                }   
-             }
-        }
+    </div>
 
-        function checkWinner() {
+    <div class="game-results">
+        <h3 class="result"></h3>
+        <h2 class="winner"></h2>
+    </div>
 
-            if (playerScore >= 5) {
-            document.getElementById('winner').innerText = 'You win';
-             
-                } else if (computerScore >= 5) {
-                document.getElementById('winner').innerText = 'You lose';
-                } 
-            }
+    <div class="buttons">
+        <button class="playerChoice">ROCK</button>
+        <button class="playerChoice">PAPER</button>
+        <button class="playerChoice">SCISSORS</button>
+    </div>
 
-        // Add an event listener to each player move button
-
-        rockButton.addEventListener('click', () => { 
-            const computerSelection = getComputerChoice(); 
-            const playerSelection = "rock";
-            document.getElementById('result').innerText = playRound(computerSelection, playerSelection);
-            document.getElementById('score').innerText = `Computer's score: ${computerScore}, Your score: ${playerScore}`;
-            checkWinner();
-     
-        });
-
-        paperButton.addEventListener('click', () => {  
-            const computerSelection = getComputerChoice(); 
-            const playerSelection = "paper";
-            document.getElementById('result').innerText = playRound(computerSelection, playerSelection);
-            document.getElementById('score').innerText = `Computer's score: ${computerScore}, Your score: ${playerScore}`;
-            checkWinner(computerScore, playerScore);
-        });
-
-        scissorsButton.addEventListener('click', () => {
-            const computerSelection = getComputerChoice();
-            const playerSelection = "scissors";
-            document.getElementById('result').innerText = playRound(computerSelection, playerSelection);
-            document.getElementById('score').innerText = `Computer's score: ${computerScore}, Your score: ${playerScore}`;
-            checkWinner(computerScore, playerScore);
-        });
-      
-    </script>
-    
+    <div class="play-again">
+        <button>Play Again</button>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
